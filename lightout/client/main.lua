@@ -14,10 +14,14 @@ RegisterNUICallback('callback', function(data, cb)
 end)
 
 
-local function hacking(cb)
+local function hacking(cb, mode, time)
     resultReceived = false
     p = promise.new()
-    SendNUIMessage({action = 'open'})
+    SendNUIMessage({
+        action = 'open',
+        time = time,
+        mode = mode,
+    })
     SetNuiFocus(true, true)
     local result = Citizen.Await(p)
     cb(result)
@@ -32,5 +36,5 @@ RegisterCommand('lightout', function(source, args)
 		else
 			print("fail")
 		end
-    end)
+    end, 4, 50) -- mode (tables), time
 end)
