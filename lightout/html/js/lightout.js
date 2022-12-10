@@ -26,8 +26,7 @@ function toggleState(box) {
 	}
 }
 
-function checkIfGood() {
-    console.log(good);
+function checkIfGood(timeToEnd) {
 	if (good == mode*mode) {
         StopLightoutTimer();
         document.querySelector('.lightout-groups').classList.add('hidden');
@@ -39,7 +38,17 @@ function checkIfGood() {
         }, 4000);
 		
 	}
-	return;
+    if (timeToEnd){
+        document.querySelector('.lightout-groups').classList.add('hidden');
+        document.querySelector('.lightout-splash').classList.remove('hidden');
+        document.querySelector('.lightout-splash .lightout-text').innerHTML = 'ACCESS DENIED';
+        setTimeout(function() {
+            ResetLightout();
+            $.post(`https://lightout/callback`, JSON.stringify({ 'success': false }));
+        }, 4000);
+    }else {
+	    return;
+    }
 }
 
 function shuffleBoxes(pos) {
@@ -137,7 +146,7 @@ function StartLightout() {
         StartLightoutTimer();
         timer_finish = sleep((speed * 1000), function(){
             lightout_started = false;
-            checkIfGood()
+            checkIfGood(true)
         });
     });
 }
@@ -166,7 +175,7 @@ function ResetLightoutTimer() {
 
 window.addEventListener('message', (event) => {
   if (event.data.action === 'open') {
-    speed = event.data.time;
+    speed = 10;
 	mode = event.data.mode;
 
     $(".lightout").fadeIn();
