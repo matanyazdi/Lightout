@@ -177,6 +177,7 @@ window.addEventListener('message', (event) => {
   if (event.data.action === 'open') {
     speed = event.data.time;
 	mode = event.data.mode;
+    good = 0;
 
     $(".lightout").fadeIn();
     document.querySelector('.lightout').classList.remove('hidden');
