@@ -175,7 +175,7 @@ function ResetLightoutTimer() {
 
 window.addEventListener('message', (event) => {
   if (event.data.action === 'open') {
-    speed = 10;
+    speed = event.data.time;
 	mode = event.data.mode;
 
     $(".lightout").fadeIn();
