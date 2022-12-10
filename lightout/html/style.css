@@ -1,0 +1,73 @@
+.hidden {
+	display: none !important;
+  }
+  
+.proper {
+border-image: linear-gradient(45deg, #ecc800, #564800) 1 !important;
+}
+
+.good {
+	background-color: #3cec54 !important;
+}
+.bad {
+background-color: #F00F18 !important;
+}
+
+/* lightout */
+.lightout {
+
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	position:absolute;
+  
+	margin: 0 auto 20px;
+	width: 540px;
+	min-width: 540px;
+	max-width: 540px;
+	height: 540px;
+	min-height: 540px;
+	max-height: 540px;
+	background-color: #232832;
+	display: none;
+}
+.lightout-splash{
+	display: inline-block;
+	width: 100%;
+	margin: 220px auto;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+}
+.lightout-splash .lightout-hacker{
+	font-size: 65px;
+	margin-bottom: 30px;
+}
+.lightout-groups{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	user-select: none;
+}
+
+
+.lightout-group{
+	width: 74px;
+	height: 74px;
+	border: 8px #232832 solid;
+	background-color: #004e1a;
+}
+
+.lightout-fliped{
+	width: 74px;
+	height: 74px;
+	border: 8px #000000 solid;
+	background-color: #01a136;
+}
+
+.lightout-unfliped{
+	width: 74px;
+	height: 74px;
+	border: 8px #000000 solid;
+	background-color: #004e1a;
+}
