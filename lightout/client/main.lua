@@ -15,6 +15,9 @@ end)
 
 
 local function hacking(cb, mode, time)
+    if mode < 4 then
+        mode = 4
+    end
     resultReceived = false
     p = promise.new()
     SendNUIMessage({
