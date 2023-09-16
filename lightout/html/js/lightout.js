@@ -31,20 +31,20 @@ function checkIfGood(timeToEnd) {
         StopLightoutTimer();
         document.querySelector('.lightout-groups').classList.add('hidden');
         document.querySelector('.lightout-splash').classList.remove('hidden');
-        document.querySelector('.lightout-splash .lightout-text').innerHTML = 'BY PASS';
+        document.querySelector('.lightout-splash').innerHTML = '<i class="fa fa-database" aria-hidden="true"></i></div> <br>Data Recovered';
         setTimeout(function() { 
             ResetLightout();
-            $.post(`https://lightout/callback`, JSON.stringify({ 'success': true }));
+            $.post(`https://${GetParentResourceName()}/callback`, JSON.stringify({ 'success': true }));
         }, 4000);
 		
 	}
     if (timeToEnd){
         document.querySelector('.lightout-groups').classList.add('hidden');
         document.querySelector('.lightout-splash').classList.remove('hidden');
-        document.querySelector('.lightout-splash .lightout-text').innerHTML = 'ACCESS DENIED';
+        document.querySelector('.lightout-splash').innerHTML = '<i class="fa fa-database" aria-hidden="true"></i></div> <br>Data Lost';
         setTimeout(function() {
             ResetLightout();
-            $.post(`https://lightout/callback`, JSON.stringify({ 'success': false }));
+            $.post(`https://${GetParentResourceName()}/callback`, JSON.stringify({ 'success': false }));
         }, 4000);
     }else {
 	    return;
@@ -119,6 +119,7 @@ function StartLightout() {
     good_positions = positions.slice(0, 10);
     let div = document.createElement('div');
     div.classList.add('lightout-group');
+    console.log(mode)
     div.style.width = mode_data[mode][1];
     div.style.height = mode_data[mode][1];
     const groups = document.querySelector('.lightout-groups');
@@ -130,7 +131,7 @@ function StartLightout() {
 
     AddLightoutListeners();
 
-    timer_start = sleep(2000, function(){
+    timer_start = sleep(3000, function(){
         document.querySelector('.lightout-splash').classList.add('hidden');
         document.querySelector('.lightout-groups').classList.remove('hidden');
 
@@ -182,7 +183,7 @@ window.addEventListener('message', (event) => {
     $(".lightout").fadeIn();
     document.querySelector('.lightout').classList.remove('hidden');
     document.querySelector('.lightout-splash').classList.remove('hidden');
-    document.querySelector('.lightout-splash .lightout-text').innerHTML = 'Network Access Blocked... Override Required';
+    document.querySelector('.lightout-splash').innerHTML = '<i class="fa fa-database" aria-hidden="true"></i> <br>Network Access Blocked... Override Required';
     sleep(1000, function() {
         StartLightout();
     });
@@ -199,7 +200,7 @@ document.addEventListener("keydown", function(ev) {
               lightout_started = false;
               game_playing = false;
               ResetLightout();
-              $.post(`https://lightout/callback`, JSON.stringify({ 'success': false }));
+              $.post(`https://${GetParentResourceName()}/callback`, JSON.stringify({ 'success': false }));
               $(".lightout").fadeOut();
               break;
       }

@@ -1,3 +1,21 @@
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url(https://use.fontawesome.com/releases/v5.15.2/webfonts/fa-solid-900.eot);
+    src: url(https://use.fontawesome.com/releases/v5.15.2/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
+         url(https://use.fontawesome.com/releases/v5.15.2/webfonts/fa-solid-900.woff2) format("woff2"),
+         url(https://use.fontawesome.com/releases/v5.15.2/webfonts/fa-solid-900.woff) format("woff"),
+         url(https://use.fontawesome.com/releases/v5.15.2/webfonts/fa-solid-900.ttf) format("truetype"),
+         url(https://use.fontawesome.com/releases/v5.15.2/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+}
+
+.fa, .fas {
+    font-family: "Font Awesome 5 Free", sans-serif;
+    font-weight: 900
+}
+
 .hidden {
 	display: none !important;
   }
@@ -33,15 +51,19 @@ background-color: #F00F18 !important;
 }
 .lightout-splash{
 	display: inline-block;
+	font-family: sans-serif;
+	font-weight: bold;
+	text-shadow: 0.1vh 0.1vh 0.1vh #000000;
 	width: 100%;
 	margin: 220px auto;
 	text-align: center;
 	color: white;
 	font-size: 16px;
-}
-.lightout-splash .lightout-hacker{
-	font-size: 65px;
 	margin-bottom: 30px;
+}
+.lightout-splash .fa-database{
+    font-size: 80px;
+    margin-bottom: 30px;
 }
 .lightout-groups{
 	display: flex;
@@ -55,19 +77,19 @@ background-color: #F00F18 !important;
 	width: 74px;
 	height: 74px;
 	border: 8px #232832 solid;
-	background-color: #004e1a;
+	background-color: #094c1c;
 }
 
 .lightout-fliped{
 	width: 74px;
 	height: 74px;
-	border: 8px #000000 solid;
-	background-color: #01a136;
+	border: 8px #22272d solid;
+	background-color: #3deb55;
 }
 
 .lightout-unfliped{
 	width: 74px;
 	height: 74px;
-	border: 8px #000000 solid;
-	background-color: #004e1a;
+	border: 8px #22272d solid;
+	background-color: #094c1c;
 }
